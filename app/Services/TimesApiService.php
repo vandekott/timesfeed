@@ -38,12 +38,12 @@ class TimesApiService
     {
         return collect($articles)->map(function ($article) {
             return [
-                'title' => $article['headline']['main'],
+                'title' => $article['headline']['main'] ?? null,
                 'url' => $article['web_url'],
-                'snippet' => $article['snippet'],
+                'snippet' => $article['snippet'] ?? null,
                 'date' => $article['pub_date'],
                 'image' => $article['multimedia'][0]['url'] ?? null,
-                'source' => $article['source'],
+                'source' => $article['source'] ?? null,
             ];
         })->toArray();
     }
